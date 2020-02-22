@@ -1,0 +1,21 @@
+{
+  "name": "songsin-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "sls deploy -v --stage $STAGE",
+    "remove": "sls remove -v --stage $STAGE",
+    "start": "sls offline start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "axios": "^0.19.2",
+    "cheerio": "^1.0.0-rc.3",
+    "ffp-js": "0.0.21",
+    "serverless-offline": "^5.12.1"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,21 @@
+{
+  "name": "songsin-layer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "./deploy.sh",
+    "local": "./local.sh",
+    "remove": "sls remove --stage $STAGE"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cheerio": "^1.0.0-rc.3",
+    "ffp-js": "0.0.21",
+    "fxsql": "^1.2.1",
+    "moment": "^2.24.0"
+  }
+}

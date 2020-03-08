@@ -64,6 +64,17 @@ getNewsTopic:
         method: get
         cors: true
 
+getSportNewsTopic:
+  handler: functions/get.getSportNewsTopic
+  layers:
+    - ${cf:${self:custom.layer.stack}-${self:custom.stage}.${self:custom.layer.name.libs}}
+    - ${cf:${self:custom.layer.stack}-${self:custom.stage}.${self:custom.layer.name.nodejs}}
+  events:
+    - http:
+        path: get_sport_news_topic
+        method: get
+        cors: true
+
 getBirth:
   handler: functions/get.getBirth
   layers:

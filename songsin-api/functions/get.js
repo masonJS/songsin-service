@@ -120,6 +120,44 @@ exports.getNewsTopic = async(event, context) => {
   }
 }
 
+exports.getSportNewsTopic = async(event, context) => {
+  try {
+    return go(
+      axios.get('https://news.joins.com/sports/worldsoccer/list?cloc=joongang-section-subsection'),
+      html => {
+        const $ = cheerio.load(html.data)
+        const $list = $('div.list_basic ul').children('li')
+        const list = []
+        $list.each(function(i) {
+          list[i] = {
+            img: $(this).find('img').attr('src'),
+            title: $(this).find('h2.headline').text(),
+            description: $(this).find('span.lead').text()
+          }
+        })
+        return list
+      },
+      filter(data => data.title),
+      map(data => ({
+        img: data.img,
+        title : data.title.replace("\n", ''),
+        description : data.description.replace("\n", '')
+      })),
+      tap(log),
+      success
+    )
+  } catch (e) {
+    return go(
+      {
+        status: false,
+        message: e.message
+      },
+      failure
+    )
+  }
+}
+
+
 
 exports.getBirth = async (event, context) => {
   try {

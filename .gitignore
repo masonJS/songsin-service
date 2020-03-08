@@ -5,7 +5,7 @@ package-lock.json
 /dist
 
 # local env files
-.env.local
+.env.local`
 .env.*.local
 
 # Log files
